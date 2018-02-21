@@ -35,7 +35,7 @@ class ezHTMLPrint{
             return true;
         }
 
-        printEzHtmlPrintErrorMessage("HTML Tag not balanced. Please check");
+        self::printEzHtmlPrintErrorMessage("HTML Tag not balanced. Please check");
         return false; 
     }
 
@@ -55,7 +55,7 @@ class ezHTMLPrint{
         echo "<p>$text</p>";
     }
 
-    function printEzHtmlPrintErrorMessage($message){
+    private static function printEzHtmlPrintErrorMessage($message){
         echo "ezHTMLPrint::$message";
     }
 }
