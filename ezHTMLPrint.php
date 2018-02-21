@@ -6,6 +6,7 @@
  */
 
 class ezHTMLPrint{
+<<<<<<< HEAD
 
     public static $htmlTagBalance = 0;
 
@@ -58,6 +59,11 @@ class ezHTMLPrint{
     private static function printEzHtmlPrintErrorMessage($message){
         echo "ezHTMLPrint::$message";
     }
+=======
+    public static function printH($headerNumber,$text){
+        echo "<h$headerNumber>$text</h$headerNumber>";
+    }
+>>>>>>> parent of 1bf7155... +Added printing of HTML tags
 }
 
 ?>
