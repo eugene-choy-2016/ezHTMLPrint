@@ -14,7 +14,7 @@ class ezHTMLPrint{
      * Adds 1 to HTML tag balance
      */
     public static function html_s(){
-        echo "<html>";
+        echo "<html>\n\n";
         self::$htmlTagBalance += 1;
     }
 
@@ -23,7 +23,7 @@ class ezHTMLPrint{
      * Minus 1 to HTML Tag balance
      */
     public static function html_e(){
-        echo "</html>";
+        echo "\n\n</html>";
         self::$htmlTagBalance -= 1;
     }
 
@@ -44,52 +44,83 @@ class ezHTMLPrint{
      * Pass in header number and text
      */
     public static function header($headerNumber,$text){
-        echo "<h$headerNumber>$text</h$headerNumber>";
+        echo "<h$headerNumber>$text</h$headerNumber>\n";
     }
 
     /**
      * Print Paragraph with text
-     * Pass in text
+     * Parameter(s) :
+     * $text - Pass in the text to be displayed in the paragraph
      */
     public static function para($text){
-        echo "<p>$text</p>";
+        echo "<p>$text</p>\n";
     }
 
     /**
-     * Break line
+     * Break line <br>
      */
     public static function br(){
-        echo "<br/>";
+        echo "<br/>\n";
     }
 
     /**
-     * Print title wit text
-     * Pass in text
+     * Print title wit text.
+     * Parameter(s) :
+     * $text - Pass in the text to be displayed in the title
      */
     public static function title($text){
-        echo "<title>$text</title>";
+        echo "<title>$text</title>\n";
     }
 
     /**
-     * Print ahref with text for HTML Link
-     * Pass in a URL and text
+     * Print ahref with text for HTML Link <ahref>.
+     * Parameter(s):
+     * 
+     * $url - The string of the url to be directed to.
+     * 
+     * $text - Text to display.
+     * @param $url - The URL to be directed to.
+     * @param $text - The text to be displayed.
      */
     public static function ahref($url,$text){
-        echo "<a href=\"$url\">$text</a>";
+        echo "<a href=\"$url\">$text</a>\n";
     }
 
     /**
-     * Print image tab with source of image
-     * Pass in the source of the image (URL/File path)
+     * Print image tab with source of image. <img src=xx width=xx height=xx>.
+     * At least $src must be passed in for this method to work
+     * Parameter(s):
+     * 
+     * $src - The location of the image
+     * 
+     * $width,$height - The width and height of the image
      */
-    public static function img($src,$width,$height){
+    public static function img(){
         $arguments = func_num_args();
         if( $arguments == 1){ //If only source is entered
-            echo "<img src=\"$src\">";
+            $src = func_get_arg(0);
+            echo "<img src=\"$src\">\n";
         }else if ($arguments == 3){ //If width and height is entered as well
-            echo "<img src=\"$src\" width=\"$width\"> height= \"$height\"";
+            $src = func_get_arg(0);
+            $width = func_get_arg(1);
+            $height = func_get_arg(2);
+            echo "<img src=\"$src\" width=\"$width\" height= \"$height\">\n";
+        }else{
+            self::printEzHtmlPrintErrorMessage("At least 1 argument required for img method.");
         }
-        
+       
+    }
+
+    /**
+     * Print image tab with the source of image
+     * Alternate text is allowed to be display if image cannot be displayed
+     * 
+     */
+    public static function img_alt($src,$alt,$width,$height){
+        $arguments = func_num_args();
+        if($arguments == 2){
+
+        }
     }
 
     private static function printEzHtmlPrintErrorMessage($message){
