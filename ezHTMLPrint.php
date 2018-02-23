@@ -175,7 +175,7 @@ class ezHTMLPrint
         }else{
             self::printEzHtmlPrintErrorMessage('At least two arguments($src,$alt) needs to be passed into img_alt');
         }
-
+    }
     /**
      * Print font in selected color
      */
