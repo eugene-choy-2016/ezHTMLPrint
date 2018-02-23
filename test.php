@@ -7,12 +7,14 @@
     ezHTMLPrint::header(3,"header 3 test");
 
     
-    ezHtmlPrint::html_e();
-    ezHTMLPrint::htmlTagBalanced();
+
     ezHTMLPrint::ahref("http://www.google.com","Google");
     ezHtmlPrint::br();
 
-    ezHTMLPrint::img("picture1.png");
+    ezHTMLPrint::img();
     ezHtmlPrint::br();
     ezHTMLPrint::img("picture1.png",100,100);
+
+    #ezHtmlPrint::html_e();
+    ezHTMLPrint::htmlTagBalanced();
 ?>

@@ -14,5 +14,8 @@ ezHTMLPrint::<method>
 On top of helping user print HTML codes in the PHP code block, I added checks to ensure that the tags are balanced. This will help the user to easier 
 debug any missing tags and to add it back in
 
+## Documentation
+Do refer to the other documentations for more detailed information of the methods.
+
 ## Contributing
 I welcome any programmer/coder to contribute to this project!
