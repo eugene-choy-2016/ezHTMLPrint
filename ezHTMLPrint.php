@@ -9,6 +9,9 @@ class ezHTMLPrint
 {
     
     public static $htmlTagBalance = 0;
+    public static $headTagBalance = 0;
+    public static $bodyTagBalance = 0;
+
 
     /**
      * Start of HTML tag <html>
@@ -31,6 +34,26 @@ class ezHTMLPrint
     }
 
     /**
+     * Start of head Tag
+     * Plus 1 to Head Tag balance
+     */
+    public static function head_s(){
+        echo "<head>";
+        self::$headTagBalance += 1;
+    }
+
+    /**
+     * End of Head Tag
+     * Minus 1 to Head Tag balance
+     */
+    public static function head_e(){
+        echo "</head>";
+        self::$headTagBalance;
+    }
+
+
+
+    /**
      * Check if a HTML Tag is balanced if it is not balance echo out a error message and return false
      */
     public static function htmlTagBalanced()
@@ -39,8 +62,18 @@ class ezHTMLPrint
             return true;
         }
 
-        self::printEzHtmlPrintErrorMessage("HTML Tag not balanced. Please check");
-        return false;
+        self::printEzHtmlPrintErrorMessage("HTML Tag not balanced. Please check and add in closing tag");
+        return false; 
+    }
+
+    /**
+     * Check if a head Tag is balanced if it is not balance echo out a error message and return false
+     */
+    public static function headTagBalanced(){
+        if(self::$headTagBalance == 0){
+            return true;
+        }
+        self::printEzHtmlPrintErrorMessage("Head Tag not balanced. Please check and add in closing tag");
     }
 
     /**
@@ -143,6 +176,11 @@ class ezHTMLPrint
             self::printEzHtmlPrintErrorMessage('At least two arguments($src,$alt) needs to be passed into img_alt');
         }
 
+    /**
+     * Print font in selected color
+     */
+    public static function coloredText(){
+        
     }
 
     private static function printEzHtmlPrintErrorMessage($message)
