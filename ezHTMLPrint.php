@@ -38,7 +38,7 @@ class ezHTMLPrint
      * Plus 1 to Head Tag balance
      */
     public static function head_s(){
-        echo "<head>";
+        echo "<head>\n";
         self::$headTagBalance += 1;
     }
 
@@ -47,11 +47,27 @@ class ezHTMLPrint
      * Minus 1 to Head Tag balance
      */
     public static function head_e(){
-        echo "</head>";
-        self::$headTagBalance;
+        echo "\n</head>";
+        self::$headTagBalance -= 1;
     }
 
+    /**
+     * Start of Body Tag
+     * Plus 1 to Body Tag Balance
+     */
+    public static function body_s(){
+        echo "<body>\n";
+        self::$bodyTagBalance += 1;
+    }
 
+    /**
+     * End of Body Tag
+     * Minus 1 to Body Tag Balance
+     */
+    public static function body_e(){
+        echo "\n</body>";
+        self::$bodyTagBalance -= 1;
+    }
 
     /**
      * Check if a HTML Tag is balanced if it is not balance echo out a error message and return false
@@ -74,6 +90,16 @@ class ezHTMLPrint
             return true;
         }
         self::printEzHtmlPrintErrorMessage("Head Tag not balanced. Please check and add in closing tag");
+    }
+
+    /**
+     * Check if a body Tag is balanced if it is not balance echo out a error message and return false
+     */
+    public static function bodyTagBalanced(){
+        if(self::$bodyTagBalance == 0){
+            return true;
+        }
+        self::printEzHtmlPrintErrorMessage("Body Tag not balanced. Please check and add in closing tag");
     }
 
     /**
@@ -179,8 +205,8 @@ class ezHTMLPrint
     /**
      * Print font in selected color
      */
-    public static function coloredText(){
-        
+    public static function coloredText($color,$text){
+        echo "<font color=\"$color\">$text</font>";
     }
 
     private static function printEzHtmlPrintErrorMessage($message)
