@@ -9,3 +9,5 @@ For example
 ezHTMLPrint::html_s(); // <html>
 ezHTMLPrint::html_e(); // </html>
 ```
+
+## HTML, Head, Body

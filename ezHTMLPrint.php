@@ -144,10 +144,7 @@ class ezHTMLPrint
      * Parameter(s):
      *
      * $url - The string of the url to be directed to.
-     *
      * $text - Text to display.
-     * @param $url - The URL to be directed to.
-     * @param $text - The text to be displayed.
      */
     public static function ahref($url, $text)
     {
@@ -161,7 +158,7 @@ class ezHTMLPrint
      *
      * $src - The location of the image
      *
-     * $width,$height - The width and height of the image
+     * $width,$height (optional) - The width and height of the image
      */
     public static function img()
     {
@@ -181,9 +178,16 @@ class ezHTMLPrint
     }
 
     /**
-     * Print image tab with the source of image
+     * Print image tab with the source of image  <img src=$src alt=$alt width=$width height=$height >.
      * Alternate text is allowed to be display if image cannot be displayed
-     *
+     * At least $src and $alt must be passed in for this method to work
+     * Parameter(s):
+     * 
+     * $src - The location of the image
+     * 
+     * $alt - The location of an alternate image
+     * 
+     * $width,$height (optional) - The width and height of the images
      */
     public static function img_alt()
     {
@@ -210,7 +214,19 @@ class ezHTMLPrint
     }
 
     /**
-     * Used for printing error message generated from EzHTMLPrint
+     * Print abbreviations
+     */
+    public static function abbr($fullName,$abbr){
+        echo "<abbr title=\"$fullName\">$abbr<abbr>";
+    }
+
+    public static function divTag_start($tagName,$attributes){
+
+    }
+
+    /**
+     * Used for printing error message generated from EzHTMLPrint.
+     * If there is a need for error handling please use this function
      */
     private static function printEzHtmlPrintErrorMessage($message)
     {
