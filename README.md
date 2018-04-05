@@ -4,7 +4,7 @@ Disclaimer: Doing this may not be best practice, but I am writing this for the s
 
 ## Getting Started
 To use the ezHTMLPrint class, you just need to download the file and put it into the folder where you would usually put your classes. The methods
-inside ezHtmlPrint are all static and could be called using this way
+in ezHTMLPrint are all static and could be called using this way. Intellisense is recommended to make it more usable.
 
 ```
 ezHTMLPrint::<method>
@@ -13,6 +13,9 @@ ezHTMLPrint::<method>
 ## Features
 On top of helping user print HTML codes in the PHP code block, I added checks to ensure that the tags are balanced. This will help the user to easier 
 debug any missing tags and to add it back in
+
+## Documentation
+Do refer to the other documentations for more detailed information of the methods.
 
 ## Contributing
 I welcome any programmer/coder to contribute to this project!
