@@ -179,10 +179,13 @@ class ezHTMLPrint
     /**
      * Print font in selected color
      */
-    public static function coloredText(){
-        
+    public static function coloredText($color,$text){
+        echo "<font color=\"$color\">$text</font>";
     }
 
+    /**
+     * Used for printing error message generated from EzHTMLPrint
+     */
     private static function printEzHtmlPrintErrorMessage($message)
     {
         trigger_error("ezHTMLPrint::$message");
